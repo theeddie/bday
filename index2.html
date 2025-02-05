@@ -23,31 +23,29 @@
             z-index: -1; /* Ensure it's behind the content */
         }
 
-        /* Invitation container, moved to bottom and wider */
         .invitation-container {
             background-color: rgba(255, 255, 255, 0.85); /* Slight transparency to see the video */
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 700px; /* Wider box */
-            padding: 30px; /* Increased padding for better content spacing */
+            max-width: 500px;
+            padding: 20px;
             text-align: center;
-            position: absolute;
-            bottom: 20px; /* Push box towards the bottom */
-            left: 50%;
-            transform: translateX(-50%); /* Center align the box */
-            z-index: 1; /* Ensure content is above video */
-            margin: 0 auto;
+            position: relative;
+            z-index: 1; /* Ensure the content is above the video */
+            margin: 20px auto; /* Center the container */
+            margin-top: 20vh; /* Push it down by 20% of the viewport height */
+            overflow: hidden;
         }
 
         h1 {
             color: #333;
-            font-size: 2em;
+            font-size: 1.8em;
         }
 
         p {
             color: #555;
             line-height: 1.6;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
 
         .schedule {
@@ -71,16 +69,27 @@
             background-color: #0056b3;
         }
 
+        #countdown {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        #countdown span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.6em;
+                font-size: 1.5em;
             }
 
             .invitation-container {
-                padding: 20px;
-                margin: 10px;
-                max-width: 90%; /* Reduce width on smaller screens */
+                padding: 15px;
+                margin: 10px auto;
+                margin-top: 15vh;
             }
 
             .btn {
@@ -93,7 +102,7 @@
             }
         }
 
-        /* Ensure video doesn't stretch too much on very small screens */
+        /* Ensure the video doesn't stretch too much on very small screens */
         @media (max-width: 480px) {
             .background-video {
                 object-position: center;
@@ -112,6 +121,17 @@
         <h1>🎉 Birthday Celebration Invitation 🎉</h1>
         <p>Join us as we celebrate our birthday on <strong>February 22nd</strong>!</p>
 
+        <!-- Countdown Timer -->
+        <div id="countdown">
+            <p><strong>Time until the celebration:</strong></p>
+            <div id="timer">
+                <span id="days"></span> Days
+                <span id="hours"></span> Hours
+                <span id="minutes"></span> Minutes
+                <span id="seconds"></span> Seconds
+            </div>
+        </div>
+
         <div class="schedule">
             <p><strong>7:00 PM:</strong> Dinner at <em>J Prime</em></p>
             <p><strong>9:30 PM:</strong> Comedy show at <em>LOL</em> featuring <strong>Jeremy Piven</strong> <a href="https://www.ticketweb.com/event/jeremy-piven-laugh-out-loud-comedy-club-tickets/13961463?pl=lolsanantonio&REFID=sanantonioWP">(*Tickets required*)</a></p>
@@ -127,5 +147,44 @@
 
         <a href="sms:2109003415?body=Hello,%20I%20am%20going%20to%20the%20birthday%20dinner.%20It's%20me,%20[Insert%20Name]%20+%20[?]" class="btn">RSVP For Dinner</a>
     </div>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        const countdown = () => {
+            const birthday = new Date("February 22, 2024 19:00:00 CST").getTime();
+            const now = new Date().getTime();
+            const difference = birthday - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            if (difference < 0) {
+                clearInterval(interval);
+                document.getElementById("timer").innerHTML = "The celebration has begun! 🎉";
+            }
+        };
+
+        const interval = setInterval(countdown, 1000);
+    </script>
+
+    <!-- Mobile Redirect Script -->
+    <script>
+        // Detect mobile devices
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Redirect to a mobile-specific page if on a mobile device
+        if (isMobile()) {
+            window.location.href = "mobile-invitation.html"; // Replace with your mobile page URL
+        }
+    </script>
 </body>
 </html>
