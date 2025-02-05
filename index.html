@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallace, Eddie, Danie Birthday Celebration Invitation</title>
+    <title>Birthday Celebration Invitation</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset default margins and hide scrollbars */
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
             overflow: hidden;
         }
 
-        /* Placeholder for the video background */
-        .background-video-placeholder {
-            position: absolute;
+        /* Fullscreen video background */
+        .background-video {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000; /* Fallback color until video loads */
-            z-index: -1;
+            object-fit: cover; /* Makes sure the video covers the entire screen */
+            z-index: -1; /* Places the video behind the content */
         }
 
-        /* Invitation container, moved to bottom and wider */
+        /* Invitation box styling */
         .invitation-container {
-            background-color: rgba(255, 255, 255, 0.85); /* Slight transparency to see the video */
+            background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 700px; /* Wider box */
-            padding: 30px; /* Increased padding for better content spacing */
+            padding: 30px;
             text-align: center;
             position: absolute;
-            bottom: 20px; /* Push box towards the bottom */
+            bottom: 20px; /* Position towards the bottom */
             left: 50%;
-            transform: translateX(-50%); /* Center align the box */
-            z-index: 1; /* Ensure content is above video */
-            margin: 0 auto;
+            transform: translateX(-50%); /* Center horizontally */
+            z-index: 1; /* Make sure it appears above the video */
         }
 
         h1 {
@@ -79,8 +79,7 @@
 
             .invitation-container {
                 padding: 20px;
-                margin: 10px;
-                max-width: 90%; /* Reduce width on smaller screens */
+                max-width: 90%;
             }
 
             .btn {
@@ -92,19 +91,17 @@
                 font-size: 1em;
             }
         }
-
-        /* Ensure video doesn't stretch too much on very small screens */
-        @media (max-width: 480px) {
-            .background-video {
-                object-position: center;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Placeholder for the video -->
-    <div class="background-video-placeholder" id="video-placeholder"></div>
 
+    <!-- Video element directly added here -->
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Invitation Content -->
     <div class="invitation-container">
         <h1>🎉 Birthday Celebration Invitation 🎉</h1>
         <p>Join us as we celebrate our birthday on <strong>February 22nd</strong>!</p>
@@ -112,7 +109,7 @@
         <div class="schedule">
             <p><strong>7:00 PM:</strong> Dinner at <em>J Prime</em></p>
             <p><strong>9:30 PM:</strong> Comedy show at <em>LOL</em> featuring <strong>Jeremy Piven</strong> <a href="https://www.ticketweb.com/event/jeremy-piven-laugh-out-loud-comedy-club-tickets/13961463?pl=lolsanantonio&REFID=sanantonioWP">(*Tickets required*)</a></p>
-            <p><strong>After the show:</strong> After Party drinks at  <em>Perfect 10</em></p>
+            <p><strong>After the show:</strong> After Party drinks at <em>Perfect 10</em></p>
         </div>
 
         <p>You've been personally invited, so please keep this invitation private. Feel free to join us for all events or just one.</p>
@@ -125,19 +122,5 @@
         <a href="sms:2109003415?body=Hello,%20I%20am%20going%20to%20the%20birthday%20dinner.%20It's%20me,%20[Insert%20Name]%20+%20[?]" class="btn">RSVP For Dinner</a>
     </div>
 
-    <script>
-        // Function to load the video after the content is loaded
-        window.onload = function() {
-            var videoElement = document.createElement('video');
-            videoElement.setAttribute('autoplay', 'true');
-            videoElement.setAttribute('muted', 'true');
-            videoElement.setAttribute('loop', 'true');
-            videoElement.setAttribute('class', 'background-video');
-            videoElement.innerHTML = '<source src="1254143_cats.mp4" type="video/mp4">Your browser does not support the video tag.';
-
-            // Append the video to the placeholder
-            document.getElementById('video-placeholder').appendChild(videoElement);
-        }
-    </script>
 </body>
 </html>
