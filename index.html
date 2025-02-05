@@ -121,6 +121,17 @@
 
         <a href="sms:2109003415?body=Hello,%20I%20am%20going%20to%20the%20birthday%20dinner.%20It's%20me,%20[Insert%20Name]%20+%20[?]" class="btn">RSVP For Dinner</a>
     </div>
+<!-- Mobile Redirect Script -->
+    <script>
+        // Detect mobile devices
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
 
+        // Redirect to a mobile-specific page if on a mobile device
+        if (isMobile()) {
+            window.location.href = "mobile-invitation.html"; // Replace with your mobile page URL
+        }
+    </script>
 </body>
 </html>
