@@ -23,28 +23,31 @@
             z-index: -1; /* Ensure it's behind the content */
         }
 
+        /* Invitation container, moved to bottom and wider */
         .invitation-container {
             background-color: rgba(255, 255, 255, 0.85); /* Slight transparency to see the video */
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            padding: 20px;
+            max-width: 700px; /* Wider box */
+            padding: 30px; /* Increased padding for better content spacing */
             text-align: center;
-            position: relative;
-            z-index: 1; /* Ensure the content is above the video */
-            margin: 20px;
-            overflow: hidden;
+            position: absolute;
+            bottom: 20px; /* Push box towards the bottom */
+            left: 50%;
+            transform: translateX(-50%); /* Center align the box */
+            z-index: 1; /* Ensure content is above video */
+            margin: 0 auto;
         }
 
         h1 {
             color: #333;
-            font-size: 1.8em;
+            font-size: 2em;
         }
 
         p {
             color: #555;
             line-height: 1.6;
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
 
         .schedule {
@@ -71,12 +74,13 @@
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.5em;
+                font-size: 1.6em;
             }
 
             .invitation-container {
-                padding: 15px;
+                padding: 20px;
                 margin: 10px;
+                max-width: 90%; /* Reduce width on smaller screens */
             }
 
             .btn {
@@ -89,7 +93,7 @@
             }
         }
 
-        /* Ensure the video doesn't stretch too much on very small screens */
+        /* Ensure video doesn't stretch too much on very small screens */
         @media (max-width: 480px) {
             .background-video {
                 object-position: center;
@@ -98,14 +102,11 @@
     </style>
 </head>
 <body>
-
-  <div class="invitation-container">
-    <video width="640" height="360" autoplay muted loop>
+    <!-- Background video -->
+    <video class="background-video" autoplay muted loop>
         <source src="1254143_cats.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <!-- Rest of your content here -->
-</div>
 
     <div class="invitation-container">
         <h1>🎉 Birthday Celebration Invitation 🎉</h1>
