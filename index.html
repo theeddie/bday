@@ -7,21 +7,31 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Full-page video background */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensure it's behind the content */
         }
 
         .invitation-container {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.8); /* Slight transparency to see the video */
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             padding: 20px;
             text-align: center;
+            position: relative;
+            z-index: 1; /* Ensure the content is above the video */
         }
 
         h1 {
@@ -56,6 +66,12 @@
     </style>
 </head>
 <body>
+    <!-- Background video -->
+    <video class="background-video" autoplay muted loop>
+        <source src="1254143_cats.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div class="invitation-container">
         <h1>🎉 Birthday Celebration Invitation 🎉</h1>
         <p>Join us as we celebrate our birthday on <strong>February 22nd</strong>!</p>
@@ -73,7 +89,7 @@
 
         <p><strong>Seating Info:</strong> Wallace, Eddie, Dani, and Erin will be at a table. Contact us if you'd like to coordinate seating with other guests.</p>
 
-      <a href="sms:2109003415?body=Hello,%20I%20am%20going%20to%20the%20birthday%20dinner.%20It's%20me,%20[Insert%20Name]%20+%20[?]" class="btn">RSVP For Dinner</a>
+        <a href="sms:2109003415?body=Hello,%20I%20am%20going%20to%20the%20birthday%20dinner.%20It's%20me,%20[Insert%20Name]%20+%20[?]" class="btn">RSVP For Dinner</a>
     </div>
 </body>
 </html>
