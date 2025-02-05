@@ -46,12 +46,34 @@
         .btn:hover {
             background-color: #0056b3;
         }
+
+        #countdown {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        #countdown span {
+            font-weight: bold;
+            color: #007BFF;
+        }
     </style>
 </head>
 <body>
     <div class="invitation-container">
         <h1>🎉 Birthday Celebration Invitation 🎉</h1>
         <p>Join us as we celebrate our birthday on <strong>February 22nd</strong>!</p>
+
+        <!-- Countdown Timer -->
+        <div id="countdown">
+            <p><strong>Time until the celebration:</strong></p>
+            <div id="timer">
+                <span id="days"></span> Days
+                <span id="hours"></span> Hours
+                <span id="minutes"></span> Minutes
+                <span id="seconds"></span> Seconds
+            </div>
+        </div>
 
         <div class="schedule">
             <p><strong>7:00 PM:</strong> Dinner at <em>J Prime</em></p>
@@ -68,5 +90,31 @@
 
         <a href="sms:2109003415?body=Hello,%20I%20am%20going%20to%20the%20birthday%20dinner.%20It's%20me,%20[Insert%20Name]%20+%20[?]" class="btn">RSVP For Dinner</a>
     </div>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        const countdown = () => {
+            const birthday = new Date("February 22, 2024 19:00:00 CST").getTime();
+            const now = new Date().getTime();
+            const difference = birthday - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            if (difference < 0) {
+                clearInterval(interval);
+                document.getElementById("timer").innerHTML = "The celebration has begun! 🎉";
+            }
+        };
+
+        const interval = setInterval(countdown, 1000);
+    </script>
 </body>
 </html>
