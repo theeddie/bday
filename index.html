@@ -3,48 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallace, Eddie, Danie Birthday Celebration Invitation</title>
+    <title>Birthday Celebration Invitation</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset default margins and hide scrollbars */
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
             overflow: hidden;
         }
 
-        /* Full-page video background */
+        /* Fullscreen video background */
         .background-video {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: -1; /* Ensure it's behind the content */
+            object-fit: cover; /* Makes sure the video covers the entire screen */
+            z-index: -1; /* Places the video behind the content */
         }
 
+        /* Invitation box styling */
         .invitation-container {
-            background-color: rgba(255, 255, 255, 0.85); /* Slight transparency to see the video */
+            background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            padding: 20px;
+            max-width: 700px; /* Wider box */
+            padding: 30px;
             text-align: center;
-            position: relative;
-            z-index: 1; /* Ensure the content is above the video */
-            margin: 20px;
-            overflow: hidden;
+            position: absolute;
+            bottom: 20px; /* Position towards the bottom */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            z-index: 1; /* Make sure it appears above the video */
         }
 
         h1 {
             color: #333;
-            font-size: 1.8em;
+            font-size: 2em;
         }
 
         p {
             color: #555;
             line-height: 1.6;
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
 
         .schedule {
@@ -71,12 +74,12 @@
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.5em;
+                font-size: 1.6em;
             }
 
             .invitation-container {
-                padding: 15px;
-                margin: 10px;
+                padding: 20px;
+                max-width: 90%;
             }
 
             .btn {
@@ -88,22 +91,17 @@
                 font-size: 1em;
             }
         }
-
-        /* Ensure the video doesn't stretch too much on very small screens */
-        @media (max-width: 480px) {
-            .background-video {
-                object-position: center;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Background video -->
-    <video class="background-video" autoplay muted loop>
+
+    <!-- Video element directly added here -->
+    <video class="background-video" autoplay muted loop playsinline>
         <source src="your-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
+    <!-- Invitation Content -->
     <div class="invitation-container">
         <h1>🎉 Birthday Celebration Invitation 🎉</h1>
         <p>Join us as we celebrate our birthday on <strong>February 22nd</strong>!</p>
@@ -111,7 +109,7 @@
         <div class="schedule">
             <p><strong>7:00 PM:</strong> Dinner at <em>J Prime</em></p>
             <p><strong>9:30 PM:</strong> Comedy show at <em>LOL</em> featuring <strong>Jeremy Piven</strong> <a href="https://www.ticketweb.com/event/jeremy-piven-laugh-out-loud-comedy-club-tickets/13961463?pl=lolsanantonio&REFID=sanantonioWP">(*Tickets required*)</a></p>
-            <p><strong>After the show:</strong> After Party drinks at  <em>Perfect 10</em></p>
+            <p><strong>After the show:</strong> After Party drinks at <em>Perfect 10</em></p>
         </div>
 
         <p>You've been personally invited, so please keep this invitation private. Feel free to join us for all events or just one.</p>
@@ -123,5 +121,6 @@
 
         <a href="sms:2109003415?body=Hello,%20I%20am%20going%20to%20the%20birthday%20dinner.%20It's%20me,%20[Insert%20Name]%20+%20[?]" class="btn">RSVP For Dinner</a>
     </div>
+
 </body>
 </html>
