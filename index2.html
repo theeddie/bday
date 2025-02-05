@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallace, Eddie, Danie Birthday Celebration Invitation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Full-page video background */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensure it's behind the content */
+        }
+
+        .invitation-container {
+            background-color: rgba(255, 255, 255, 0.85); /* Slight transparency to see the video */
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1; /* Ensure the content is above the video */
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.8em;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        .schedule {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .invitation-container {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            .btn {
+                padding: 8px 16px;
+                font-size: 1em;
+            }
+
+            .schedule p {
+                font-size: 1em;
+            }
+        }
+
+        /* Ensure the video doesn't stretch too much on very small screens */
+        @media (max-width: 480px) {
+            .background-video {
+                object-position: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+  <div class="invitation-container">
+    <video width="640" height="360" autoplay muted loop>
+        <source src="1254143_cats.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Rest of your content here -->
+</div>
+
+    <div class="invitation-container">
+        <h1>🎉 Birthday Celebration Invitation 🎉</h1>
+        <p>Join us as we celebrate our birthday on <strong>February 22nd</strong>!</p>
+
+        <div class="schedule">
+            <p><strong>7:00 PM:</strong> Dinner at <em>J Prime</em></p>
+            <p><strong>9:30 PM:</strong> Comedy show at <em>LOL</em> featuring <strong>Jeremy Piven</strong> <a href="https://www.ticketweb.com/event/jeremy-piven-laugh-out-loud-comedy-club-tickets/13961463?pl=lolsanantonio&REFID=sanantonioWP">(*Tickets required*)</a></p>
+            <p><strong>After the show:</strong> After Party drinks at  <em>Perfect 10</em></p>
+        </div>
+
+        <p>You've been personally invited, so please keep this invitation private. Feel free to join us for all events or just one.</p>
+
+        <p><strong>RSVP:</strong> Let us know which part(s) you'll attend as soon as possible.</p>
+        <p>If attending the comedy show, purchase your ticket for the <strong>9:30 PM</strong> show.</p>
+
+        <p><strong>Seating Info:</strong> Wallace, Eddie, Dani, and Erin will be at a table. Contact us if you'd like to coordinate seating with other guests.</p>
+
+        <a href="sms:2109003415?body=Hello,%20I%20am%20going%20to%20the%20birthday%20dinner.%20It's%20me,%20[Insert%20Name]%20+%20[?]" class="btn">RSVP For Dinner</a>
+    </div>
+</body>
+</html>
